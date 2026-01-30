@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dwjysww4qcr0f"]
+
+[ext_resource type="Script" uid="uid://cq5dl5hxh4u6w" path="res://car.gd" id="1_uoj53"]
+[ext_resource type="Texture2D" uid="uid://drvpwcp6r6xxm" path="res://art/track.png" id="2_06lh1"]
+[ext_resource type="Texture2D" uid="uid://oajaedot7djf" path="res://art/Right.png" id="2_k61xc"]
+[ext_resource type="Texture2D" uid="uid://c1foc5nqw3nur" path="res://art/Down-Right.png" id="3_u5era"]
+[ext_resource type="Texture2D" uid="uid://d38j57c8kicfv" path="res://art/Down.png" id="4_uhg3g"]
+[ext_resource type="Texture2D" uid="uid://0s5ngkvtn366" path="res://art/Down-Left.png" id="5_tssvf"]
+[ext_resource type="Texture2D" uid="uid://bsjpb526vh0tm" path="res://art/Left.png" id="6_2s4w4"]
+[ext_resource type="Texture2D" uid="uid://bjb708uuxwh8c" path="res://art/Up-Left.png" id="7_6urck"]
+[ext_resource type="Texture2D" uid="uid://b1m0b68al2h1p" path="res://art/Up.png" id="8_pc2p3"]
+[ext_resource type="Texture2D" uid="uid://ch4yl662rj8q" path="res://art/Up-Right.png" id="9_xaoq2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uoj53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k61xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u5era")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uhg3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tssvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2s4w4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6urck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pc2p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xaoq2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_td361"]
+size = Vector2(59, 74)
+
+[node name="car" type="CharacterBody2D" unique_id=2086235231]
+motion_mode = 1
+script = ExtResource("1_uoj53")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719187588]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_uoj53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497766145]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_td361")
+
+[node name="Node" type="Node" parent="." unique_id=427081933]
+
+[node name="Track" type="Sprite2D" parent="Node" unique_id=1955344250]
+z_index = -1
+position = Vector2(580, 331)
+scale = Vector2(0.8082386, 1.1061643)
+texture = ExtResource("2_06lh1")
