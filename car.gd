@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Car
 
 @export var steering_angle = 35  # Maximum angle for steering the car's wheels
 @export var engine_power = 600  # How much force the engine can apply for acceleration
@@ -14,6 +15,7 @@ extends CharacterBody2D
 var wheel_base = 65  # Distance between the front and back axle of the car
 var acceleration = Vector2.ZERO  # Current acceleration vector
 var steer_direction  # Current direction of steering
+var in_gravel = false
 
 @export var is_active = true
 
@@ -42,6 +44,10 @@ func update_sprite_visuals():
 
 #function to handle input from the user and apply effects to the car's movement
 func get_input():
+	if(in_gravel): friction = -300 
+	# maybe want to add some delay or build up so it doenst immeditally slow down and speed up
+	else: friction = -35
+	
 	# Get steering input and translate it to an angle
 	var turn = Input.get_axis("move_left", "move_right")
 	steer_direction = turn * deg_to_rad(steering_angle)
@@ -107,3 +113,10 @@ func calculate_steering(delta):
 
 	# Update the car's rotation
 	rotation = new_heading.angle()
+	
+func entered_gravel() -> void:
+	in_gravel = true
+
+func exit_gravel() -> void: 
+	in_gravel = false
+	
