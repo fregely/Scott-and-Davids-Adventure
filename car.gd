@@ -12,12 +12,25 @@ class_name Car
 @export var traction_fast = 1  # Traction factor when the car is moving fast (affects control)
 @export var traction_slow = 10  # Traction factor when the car is moving slow (affects control)
 
+
 var wheel_base = 65  # Distance between the front and back axle of the car
 var acceleration = Vector2.ZERO  # Current acceleration vector
 var steer_direction  # Current direction of steering
 var in_gravel = false
+var verification_count: int = 0;
+var verification_passed: Array[int] = []
+var car_number = 1 
+var car_name: String = "James"
+var lap_time: float = 0.0
 
 @export var is_active = true
+
+func setup(vc: int) -> void:
+	verification_count = vc
+	pass 
+
+func _process(delta: float) -> void:
+	lap_time += delta
 
 func _physics_process(delta: float) -> void:
 	if is_active:
@@ -117,6 +130,18 @@ func calculate_steering(delta):
 func entered_gravel() -> void:
 	in_gravel = true
 
-func exit_gravel() -> void: 
+func exit_gravel() -> void:
 	in_gravel = false
-	
+
+func lap_completed() -> void:
+	if verification_passed.size() == verification_count:
+		var lcd: LapCompleteData = LapCompleteData.new(self, lap_time)
+		print("Lap Completed: %s" % lcd)
+		EventHub.emit_on_lap_completed(lcd)
+	verification_passed.clear()
+	lap_time = 0.0
+
+func hit_verification(verification_id: int) -> void:
+	if verification_id not in verification_passed:
+		verification_passed.append(verification_id)
+			

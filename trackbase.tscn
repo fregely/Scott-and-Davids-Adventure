@@ -2,24 +2,39 @@
 
 [ext_resource type="Texture2D" uid="uid://drvpwcp6r6xxm" path="res://art/track.png" id="1_6vwqt"]
 [ext_resource type="Script" uid="uid://bw41jf5f83o5k" path="res://track.gd" id="2_77fmv"]
+[ext_resource type="Script" uid="uid://dk21dgqlnikjx" path="res://finish_line.gd" id="3_8h2s0"]
 
-[node name="Node" type="Node" unique_id=526663614]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77fmv"]
+size = Vector2(24.5, 136.5)
+
+[node name="TrackBase" type="Node" unique_id=526663614]
 
 [node name="Track" type="Sprite2D" parent="." unique_id=1367216189]
 z_index = -1
 position = Vector2(580, 331)
 scale = Vector2(0.8082386, 1.1061643)
 texture = ExtResource("1_6vwqt")
+metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=882671569]
+[node name="TrackBase" type="Area2D" parent="." unique_id=882671569]
 collision_layer = 0
 script = ExtResource("2_77fmv")
+metadata/_edit_lock_ = true
 
-[node name="insideMap" type="CollisionPolygon2D" parent="Area2D" unique_id=22187283]
+[node name="insideMap" type="CollisionPolygon2D" parent="TrackBase" unique_id=22187283]
 polygon = PackedVector2Array(139, 261, 139, 246, 137, 239, 137, 205, 141, 197, 147, 184, 157, 170, 168, 162, 187, 150, 203, 142, 232, 135, 259, 124, 282, 113, 297, 108, 528, 107, 543, 111, 560, 113, 576, 115, 594, 117, 680, 118, 682, 115, 766, 116, 777, 119, 789, 122, 804, 124, 862, 124, 865, 126, 891, 126, 900, 130, 908, 133, 941, 148, 966, 181, 972, 192, 974, 199, 979, 207, 988, 228, 994, 254, 997, 275, 999, 286, 999, 319, 998, 327, 996, 335, 994, 339, 991, 348, 986, 359, 980, 370, 976, 375, 966, 385, 958, 391, 951, 395, 946, 398, 935, 404, 926, 409, 914, 414, 898, 418, 873, 422, 852, 427, 832, 431, 818, 433, 806, 436, 795, 438, 784, 440, 780, 442, 773, 444, 767, 446, 762, 448, 756, 451, 752, 452, 746, 456, 740, 458, 735, 459, 729, 462, 718, 464, 690, 466, 609, 466, 562, 464, 502, 462, 453, 459, 435, 457, 422, 455, 412, 453, 391, 451, 377, 448, 367, 446, 356, 444, 345, 442, 336, 440, 325, 438, 314, 436, 307, 434, 299, 431, 292, 429, 286, 427, 280, 424, 275, 422, 260, 415, 224, 397, 207, 388, 189, 373, 173, 352, 168, 340, 163, 331, 160, 324, 155, 313, 148, 296, 145, 283)
 
-[node name="outsideMap" type="CollisionPolygon2D" parent="Area2D" unique_id=2042588050]
+[node name="outsideMap" type="CollisionPolygon2D" parent="TrackBase" unique_id=2042588050]
 polygon = PackedVector2Array(450, 43, 521, 45, 614, 50, 758, 56, 846, 60, 915, 70, 955, 82, 974, 95, 1009, 128, 1046, 178, 1055, 198, 1062, 246, 1065, 271, 1066, 333, 1061, 350, 1048, 371, 1020, 412, 999, 439, 962, 473, 941, 479, 911, 483, 881, 489, 846, 499, 809, 512, 779, 523, 742, 528, 666, 529, 612, 532, 567, 534, 520, 534, 494, 533, 466, 530, 403, 529, 382, 525, 368, 523, 354, 520, 340, 517, 211, 491, 178, 483, 158, 471, 142, 451, 122, 413, 102, 365, 85, 315, 80, 272, 80, 203, 93, 159, 111, 128, 127, 104, 148, 87, 178, 69, 213, 52, 237, 41, 261, 31, 307, 30, 341, 38, 382, 42, 442, 43, 443, -28, -36, -32, -36, 653, 731, 698, 1240, 660, 1244, 271, 1197, -95, 521, -54, 443, 31)
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[node name="Finish Line" type="Area2D" parent="." unique_id=824232803]
+collision_layer = 0
+script = ExtResource("3_8h2s0")
+
+[node name="finishCollision" type="CollisionShape2D" parent="Finish Line" unique_id=1041460051]
+position = Vector2(561, 499)
+shape = SubResource("RectangleShape2D_77fmv")
+
+[connection signal="body_entered" from="TrackBase" to="TrackBase" method="_on_body_entered"]
+[connection signal="body_exited" from="TrackBase" to="TrackBase" method="_on_body_exited"]
+[connection signal="body_entered" from="Finish Line" to="Finish Line" method="_on_body_entered"]
