@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jaxjtp0tdwvv"]
+
+[ext_resource type="PackedScene" uid="uid://dwjysww4qcr0f" path="res://Scenes/Car/Car.tscn" id="1_3qauk"]
+[ext_resource type="Script" uid="uid://cdktu4b6emo6r" path="res://Scenes/Car/player_car.gd" id="2_o4te8"]
+
+[node name="car" unique_id=2086235231 instance=ExtResource("1_3qauk")]
+script = ExtResource("2_o4te8")

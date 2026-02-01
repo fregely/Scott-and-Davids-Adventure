@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwjysww4qcr0f"]
 
-[ext_resource type="Script" uid="uid://cq5dl5hxh4u6w" path="res://Scenes/Player Car/car.gd" id="1_uoj53"]
+[ext_resource type="Script" uid="uid://cq5dl5hxh4u6w" path="res://Scenes/Car/Car.gd" id="1_uoj53"]
 [ext_resource type="Texture2D" uid="uid://oajaedot7djf" path="res://art/Right.png" id="2_k61xc"]
 [ext_resource type="Texture2D" uid="uid://c1foc5nqw3nur" path="res://art/Down-Right.png" id="3_u5era"]
 [ext_resource type="Texture2D" uid="uid://d38j57c8kicfv" path="res://art/Down.png" id="4_uhg3g"]
@@ -45,7 +45,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_td361"]
 size = Vector2(34, 17)
 
-[node name="car" type="CharacterBody2D" unique_id=2086235231]
+[node name="Car" type="CharacterBody2D" unique_id=2086235231]
 position = Vector2(514, 310)
 collision_mask = 0
 motion_mode = 1

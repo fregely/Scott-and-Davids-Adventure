@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnv0fqwtb7soh" path="res://Scenes/Track1/track_1.gd" id="1_cu270"]
 [ext_resource type="Texture2D" uid="uid://drvpwcp6r6xxm" path="res://art/track.png" id="1_vtkak"]
-[ext_resource type="PackedScene" uid="uid://dwjysww4qcr0f" path="res://Scenes/Player Car/car.tscn" id="2_pwn2d"]
+[ext_resource type="PackedScene" uid="uid://dwjysww4qcr0f" path="res://Scenes/Car/Car.tscn" id="2_pwn2d"]
 [ext_resource type="Script" uid="uid://bw41jf5f83o5k" path="res://Scenes/TrackBase/track.gd" id="3_46d2y"]
 [ext_resource type="Script" uid="uid://dk21dgqlnikjx" path="res://Scenes/Track1/finish_line.gd" id="4_pwn2d"]
 [ext_resource type="PackedScene" uid="uid://dd0s1ls6aadtb" path="res://Scenes/Verification/verification.tscn" id="5_46d2y"]
