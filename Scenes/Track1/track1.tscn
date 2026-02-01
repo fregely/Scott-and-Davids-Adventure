@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://chqc602xaobx6"]
 
-[ext_resource type="Script" uid="uid://bnv0fqwtb7soh" path="res://track_1.gd" id="1_cu270"]
+[ext_resource type="Script" uid="uid://bnv0fqwtb7soh" path="res://Scenes/Track1/track_1.gd" id="1_cu270"]
 [ext_resource type="Texture2D" uid="uid://drvpwcp6r6xxm" path="res://art/track.png" id="1_vtkak"]
-[ext_resource type="PackedScene" uid="uid://dwjysww4qcr0f" path="res://car.tscn" id="2_pwn2d"]
-[ext_resource type="Script" uid="uid://bw41jf5f83o5k" path="res://track.gd" id="3_46d2y"]
-[ext_resource type="Script" uid="uid://dk21dgqlnikjx" path="res://finish_line.gd" id="4_pwn2d"]
-[ext_resource type="PackedScene" uid="uid://dd0s1ls6aadtb" path="res://verification.tscn" id="5_46d2y"]
-[ext_resource type="PackedScene" uid="uid://dpfgrnpc1wtwt" path="res://RaceController.tscn" id="7_hoojx"]
+[ext_resource type="PackedScene" uid="uid://dwjysww4qcr0f" path="res://Scenes/Player Car/car.tscn" id="2_pwn2d"]
+[ext_resource type="Script" uid="uid://bw41jf5f83o5k" path="res://Scenes/TrackBase/track.gd" id="3_46d2y"]
+[ext_resource type="Script" uid="uid://dk21dgqlnikjx" path="res://Scenes/Track1/finish_line.gd" id="4_pwn2d"]
+[ext_resource type="PackedScene" uid="uid://dd0s1ls6aadtb" path="res://Scenes/Verification/verification.tscn" id="5_46d2y"]
+[ext_resource type="PackedScene" uid="uid://dpfgrnpc1wtwt" path="res://Scenes/RaceController/RaceController.tscn" id="7_hoojx"]
+[ext_resource type="PackedScene" uid="uid://btjm5sna7e0g5" path="res://Scenes/TrackProcessor/track_processor.tscn" id="9_gu660"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46d2y"]
 size = Vector2(24.5, 136.5)
+
+[sub_resource type="Curve2D" id="Curve2D_j0mjo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6.3532104, -41.62494, -11.525432, -69.93316, 11.525432, 69.93316, 13.273193, 156.60394, -38.03343, -62.151608, 38.03343, 62.151608, 70.15515, 319.7862, -58.818024, 5.2434416, 58.818024, -5.2434416, 230.75464, 368.04382, -19.446121, 44.243248, 19.446121, -44.243248, 368.5582, 277.98175, -10.918124, 94.63625, 10.918124, -94.63625, 396.7339, 119.14801, 0.18183845, 39.14654, -0.18183845, -39.14654, 447.7144, -321.56006, 49.262703, 31.127153, -49.262703, -31.127153, 387.72528, -505.579, -41.17775, 0.6721015, 41.17775, -0.6721015, 252.12592, -528.50977, 34.179993, -45.674397, -34.179993, 45.674397, 114.8273, -459.16528, 21.613674, -71.903534, -21.613674, 71.903534, 47.533356, -311.16013, 0, 0, 0, 0, 6.3532104, -41.62494)
+}
+point_count = 12
 
 [node name="Track1" type="Node" unique_id=464307260]
 script = ExtResource("1_cu270")
@@ -22,7 +29,7 @@ texture = ExtResource("1_vtkak")
 metadata/_edit_lock_ = true
 
 [node name="TrackBase" type="Area2D" parent="." unique_id=1363702182]
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("3_46d2y")
 metadata/_edit_lock_ = true
 
@@ -33,6 +40,8 @@ polygon = PackedVector2Array(139, 261, 139, 246, 137, 239, 137, 205, 141, 197, 1
 polygon = PackedVector2Array(450, 43, 521, 45, 614, 50, 758, 56, 846, 60, 915, 70, 955, 82, 974, 95, 1009, 128, 1046, 178, 1055, 198, 1062, 246, 1065, 271, 1066, 333, 1061, 350, 1048, 371, 1020, 412, 999, 439, 962, 473, 941, 479, 911, 483, 881, 489, 846, 499, 809, 512, 779, 523, 742, 528, 666, 529, 612, 532, 567, 534, 520, 534, 494, 533, 466, 530, 403, 529, 382, 525, 368, 523, 354, 520, 340, 517, 211, 491, 178, 483, 158, 471, 142, 451, 122, 413, 102, 365, 85, 315, 80, 272, 80, 203, 93, 159, 111, 128, 127, 104, 148, 87, 178, 69, 213, 52, 237, 41, 261, 31, 307, 30, 341, 38, 382, 42, 442, 43, 443, -28, -36, -32, -36, 653, 731, 698, 1240, 660, 1244, 271, 1197, -95, 521, -54, 443, 31)
 
 [node name="Finish Line" type="Area2D" parent="." unique_id=114709523]
+position = Vector2(40, -8)
+rotation = 0.008280011
 collision_layer = 0
 script = ExtResource("4_pwn2d")
 
@@ -64,6 +73,18 @@ rotation = 2.0848105
 position = Vector2(476, 493)
 
 [node name="RaceController" parent="." unique_id=1115143122 instance=ExtResource("7_hoojx")]
+
+[node name="Waypoints Holder" type="Node" parent="." unique_id=1841888291]
+
+[node name="TrackPath" type="Path2D" parent="." unique_id=1312973634]
+position = Vector2(667, 500)
+rotation = -1.6524369
+curve = SubResource("Curve2D_j0mjo")
+
+[node name="TrackProcessor" parent="TrackPath" unique_id=912610777 instance=ExtResource("9_gu660")]
+position = Vector2(5.467998, 8.357513)
+rotation = 1.5756547
+progress = 50.0
 
 [connection signal="body_entered" from="TrackBase" to="TrackBase" method="_on_body_entered"]
 [connection signal="body_exited" from="TrackBase" to="TrackBase" method="_on_body_exited"]

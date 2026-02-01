@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://by3whys81x0tu"]
+
+[ext_resource type="Script" uid="uid://bv0wxjx3vcuk6" path="res://Scenes/Waypoint/waypoint.gd" id="1_13byx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_thkek"]
+
+[node name="Waypoint" type="Node2D" unique_id=1620919320]
+script = ExtResource("1_13byx")
+
+[node name="RightCollison" type="RayCast2D" parent="." unique_id=1149291916]
+target_position = Vector2(100, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="LeftCollison" type="RayCast2D" parent="." unique_id=689089801]
+target_position = Vector2(-100, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Label" type="Label" parent="." unique_id=1751812251]
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 11.0
+text = "00"
+label_settings = SubResource("LabelSettings_thkek")
+horizontal_alignment = 1

@@ -51,6 +51,7 @@ move_down={
 
 2d_render/layer_1="Car"
 2d_physics/layer_1="Car"
+2d_physics/layer_2="Track"
 
 [physics]
 

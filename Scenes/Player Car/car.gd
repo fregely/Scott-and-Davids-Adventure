@@ -144,4 +144,5 @@ func lap_completed() -> void:
 func hit_verification(verification_id: int) -> void:
 	if verification_id not in verification_passed:
 		verification_passed.append(verification_id)
+		
 			

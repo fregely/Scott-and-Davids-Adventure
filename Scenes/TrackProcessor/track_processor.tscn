@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://btjm5sna7e0g5"]
+
+[ext_resource type="Script" uid="uid://ds11lejukn3mr" path="res://Scenes/TrackProcessor/track_processor.gd" id="1_7f3xx"]
+
+[node name="TrackProcessor" type="PathFollow2D" unique_id=912610777]
+script = ExtResource("1_7f3xx")

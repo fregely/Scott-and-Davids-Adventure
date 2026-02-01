@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bivvgoc4ijb8m"]
 
 [ext_resource type="Texture2D" uid="uid://drvpwcp6r6xxm" path="res://art/track.png" id="1_6vwqt"]
-[ext_resource type="Script" uid="uid://bw41jf5f83o5k" path="res://track.gd" id="2_77fmv"]
-[ext_resource type="Script" uid="uid://dk21dgqlnikjx" path="res://finish_line.gd" id="3_8h2s0"]
+[ext_resource type="Script" uid="uid://bw41jf5f83o5k" path="res://Scenes/TrackBase/track.gd" id="2_77fmv"]
+[ext_resource type="Script" uid="uid://dk21dgqlnikjx" path="res://Scenes/Track1/finish_line.gd" id="3_8h2s0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77fmv"]
 size = Vector2(24.5, 136.5)
